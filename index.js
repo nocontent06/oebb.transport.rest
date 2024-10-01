@@ -5,12 +5,6 @@ import express from 'express'
 
 const expApp = express()
 
-expApp.use((req, res, next) => {
-    if (req.headers.host === 'oebb.macistry.com') {
-        return res.redirect(301, `https://v6.oebb.transport.rest${req.originalUrl}`)
-    }
-})
-
 // Mount the API under the /api path
 expApp.use('/api', api)
 expApp.get('/', (req, res) => {
