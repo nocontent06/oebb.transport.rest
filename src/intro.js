@@ -72,7 +72,7 @@ const html = `
         <div class="hero-section">
             <h1>OEBB Transport REST API</h1>
             <p>The modern way to interact with OEBB services</p>
-            <a href="#" class="btn btn-light btn-lg mt-3">Get Started</a>
+            <a href="/docs" class="btn btn-light btn-lg mt-3">Get Started</a>
         </div>
 
         <!-- API Information Section -->
