@@ -1,25 +1,20 @@
-import {createClient as createHafas} from 'hafas-client'
-import {profile as dbProfile} from 'hafas-client/p/oebb/index.js'
-import {createHafasRestApi as createApi} from 'hafas-rest-api'
+import api from './src/createHafasAPIClient.js'
+import html from './src/intro.js'
+import docs from './src/docs.js'
 import express from 'express'
 
-const config = {
-	hostname: 'v6.oebb.transport.rest',
-	name: 'OEBB Transport Rest API',
-	homepage: 'https://github.com/nocontent06/oebb.transport.rest',
-	version: '1.0.0',
-	aboutPage: false
-}
-
-const hafas = createHafas(dbProfile, 'admin@macistry.com')
-const api = await createApi(hafas, config)
-
-const app = express()
+const expApp = express()
 
 // Mount the API under the /api path
-app.use('/api', api)
+expApp.use('/api', api)
+expApp.get('/', (req, res) => {
+    res.send(html);
+});
+expApp.get('/docs', (req, res) => {
+    res.send(docs);
+});
 
-app.listen(443, (err) => {
-    console.log('Listening on http://localhost:443')
+expApp.listen(3000, (err) => {
+    console.log('Listening on http://localhost:3000')
     if (err) console.error(err)
 })
