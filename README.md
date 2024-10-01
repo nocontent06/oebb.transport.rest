@@ -1,2 +1,2 @@
 # oebb.transport.rest
-http://oebb.transport.rest an OEBB API
+https://v6.oebb.transport.rest an OEBB API
